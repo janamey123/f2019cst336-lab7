@@ -12,8 +12,19 @@ app.get("/", async function (req, res) {
     let keyword = keywords[random];
     let orientation = "horizontal";
     let parsedData = await getImages(keyword, orientation);
+
+
     console.dir("parsedData: " + parsedData); //displays content of the object
-    res.render("index", {"images": parsedData});
+    res.render("index", {
+        "image1": parsedData.hits[1].largeImageURL,
+        "image1Like": parsedData.hits[1].likes,
+        "image2": parsedData.hits[2].largeImageURL,
+        "image2Like": parsedData.hits[2].likes,
+        "image3": parsedData.hits[3].largeImageURL,
+        "image3Like": parsedData.hits[3].likes,
+        "image4": parsedData.hits[4].largeImageURL,
+        "image4Like": parsedData.hits[4].likes
+    });
 }); //root route
 
 app.get("/results", async function (req, res) {
