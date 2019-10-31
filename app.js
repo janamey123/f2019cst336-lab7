@@ -7,7 +7,9 @@ const request = require('request');
 
 //routes
 app.get("/", async function (req, res) {
-    let keyword = "otter";
+    let keywords = ["flower", "beach", "ocean", "california", "surfing"];
+    let random = Math.floor(Math.random() * 5);
+    let keyword = keywords[random];
     let orientation = "horizontal";
     let parsedData = await getImages(keyword, orientation);
     console.dir("parsedData: " + parsedData); //displays content of the object
