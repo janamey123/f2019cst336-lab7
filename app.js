@@ -12,8 +12,13 @@ app.get("/", async function (req, res) {
     let keyword = keywords[random];
     let orientation = "horizontal";
     let parsedData = await getImages(keyword, orientation);
+    let len = parsedData.length;
+    let number1 = Math.floor(Math.random() * len);
+    let number2 = Math.floor(Math.random() * len);
+    let number3 = Math.floor(Math.random() * len);
+    let number4 = Math.floor(Math.random() * len);
     console.dir("parsedData: " + parsedData); //displays content of the object
-    res.render("index", {"images": parsedData});
+    res.render("index", {"images": parsedData, "index1": number1});
 }); //root route
 
 app.get("/results", async function (req, res) {
@@ -21,6 +26,11 @@ app.get("/results", async function (req, res) {
     let keyword = req.query.keyword; //gets the value that the user typed in the form using the GET method
     let orientation = req.query.select;
     let parsedData = await getImages(keyword, orientation);
+    let len = parsedData.length;
+    let number1 = Math.floor(Math.random() * len);
+    let number2 = Math.floor(Math.random() * len);
+    let number3 = Math.floor(Math.random() * len);
+    let number4 = Math.floor(Math.random() * len);
     res.render("results", {"images": parsedData});
 });//results route
 
