@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Pixabay Search (Express Version) </title>
-    </head>
-    <body>
+<head>
+    <title> Pixabay Search (Express Version) </title>
+</head>
+<body>
 
-        <h1> Pixabay Search (Express Version) </h1>
+<h1> Pixabay Search Results </h1>
+<form action="/results" method="GET">
 
-        <form action="/results" method="GET">
+    Keyword: <input type="text" name="keyword">
+    <br><br>
+    Orientation:
+    <select id="orientation" name="Select">
+        <option value="horizontal">Horizontal</option>
+        <option value="vertical">Vertical</option>
+    </select>
+    <button id="searchbtn">Search</button>
 
-            Keyword: <input type="text" name="keyword">
-            Orientation:
-            <button> Search! </button>
+</form>
+<br>
 
-        </form> <br>
+<img src='<%= image %>'>
 
-        <img src='<%=image%>'>
-
-    </body>
+</body>
 </html>
