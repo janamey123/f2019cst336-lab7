@@ -21,8 +21,9 @@ app.get("/results", async function(req, res){
     
     //console.dir(req);
     let keyword = req.query.keyword; //gets the value that the user typed in the form using the GET method
+    let orientation = req.query.select;
     
-    let parsedData = await getImages(keyword);
+    let parsedData = await getImages(keyword, orientation);
 
     res.render("results", {"images":parsedData});
     
@@ -30,11 +31,11 @@ app.get("/results", async function(req, res){
 
 
 //Returns all data from the Pixabay API as JSON format
-function getImages(keyword){
+function getImages(keyword, orientation){
     
     
     return new Promise( function(resolve, reject){
-        request('https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q='+keyword,
+        request('https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q='+keyword+'&orientation='+orientation,
                  function (error, response, body) {
     
             if (!error && response.statusCode == 200  ) { //no issues in the request
