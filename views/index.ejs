@@ -12,8 +12,8 @@
 
 </form>
 <br>
-<div>Likes: <%=image1Likes %></div>
-<img src='<%=image1 %>' class="rounded" width='250'>
+<div>Likes: <%=images.hits[Math.floor(Math.random() * images.hits.length)].likes%></div>
+<img src='<%= images.hits[Math.floor(Math.random() * images.hits.length)].largeImageURL %>' class="rounded" width='250'>
 <br>
 <div>Likes: <%=images.hits[Math.floor(Math.random() * images.hits.length)].likes%></div>
 <img src='<%= images.hits[Math.floor(Math.random() * images.hits.length)].largeImageURL %>' class="rounded" width='250'>

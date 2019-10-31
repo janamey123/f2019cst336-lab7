@@ -12,9 +12,8 @@ app.get("/", async function (req, res) {
     let keyword = keywords[random];
     let orientation = "horizontal";
     let parsedData = await getImages(keyword, orientation);
-
     console.dir("parsedData: " + parsedData); //displays content of the object
-    res.render("index", {"image1": parsedData.hits[0].largeImageURL, "image1Likes": parsedData.hits[0].likes});
+    res.render("index", {"images": parsedData});
 }); //root route
 
 app.get("/results", async function (req, res) {
