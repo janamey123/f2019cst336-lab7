@@ -13,17 +13,32 @@ app.get("/", async function (req, res) {
     let orientation = "horizontal";
     let parsedData = await getImages(keyword, orientation);
 
+    let len = parsedData.hits.length;
+    let number1 = Math.floor(Math.random() * len);
+    let number2 = Math.floor(Math.random() * len);
+    while (number1 == number2) {
+        number2 = Math.floor(Math.random() * len);
+    }
+    let number3 = Math.floor(Math.random() * len);
+    while (number1 == number3 || number2 == number3) {
+        number3 = Math.floor(Math.random() * len);
+    }
+    let number4 = Math.floor(Math.random() * len);
+    while (number1 == number4 || number2 == number4 || number3 == number4) {
+        number4 = Math.floor(Math.random() * len);
+    }
+
 
     console.dir("parsedData: " + parsedData); //displays content of the object
     res.render("index", {
-        "image1": parsedData.hits[1].largeImageURL,
-        "image1Like": parsedData.hits[1].likes,
-        "image2": parsedData.hits[2].largeImageURL,
-        "image2Like": parsedData.hits[2].likes,
-        "image3": parsedData.hits[3].largeImageURL,
-        "image3Like": parsedData.hits[3].likes,
-        "image4": parsedData.hits[4].largeImageURL,
-        "image4Like": parsedData.hits[4].likes
+        "image1": parsedData.hits[number1].largeImageURL,
+        "image1Like": parsedData.hits[number1].likes,
+        "image2": parsedData.hits[number2].largeImageURL,
+        "image2Like": parsedData.hits[number2].likes,
+        "image3": parsedData.hits[number3].largeImageURL,
+        "image3Like": parsedData.hits[number3].likes,
+        "image4": parsedData.hits[number4].largeImageURL,
+        "image4Like": parsedData.hits[number4].likes
     });
 }); //root route
 
@@ -32,7 +47,30 @@ app.get("/results", async function (req, res) {
     let keyword = req.query.keyword; //gets the value that the user typed in the form using the GET method
     let orientation = req.query.select;
     let parsedData = await getImages(keyword, orientation);
-    res.render("results", {"images": parsedData});
+    let len = parsedData.hits.length;
+    let number1 = Math.floor(Math.random() * len);
+    let number2 = Math.floor(Math.random() * len);
+    while (number1 == number2) {
+        number2 = Math.floor(Math.random() * len);
+    }
+    let number3 = Math.floor(Math.random() * len);
+    while (number1 == number3 || number2 == number3) {
+        number3 = Math.floor(Math.random() * len);
+    }
+    let number4 = Math.floor(Math.random() * len);
+    while (number1 == number4 || number2 == number4 || number3 == number4) {
+        number4 = Math.floor(Math.random() * len);
+    }
+    res.render("results", {
+        "image1": parsedData.hits[number1].largeImageURL,
+        "image1Like": parsedData.hits[number1].likes,
+        "image2": parsedData.hits[number2].largeImageURL,
+        "image2Like": parsedData.hits[number2].likes,
+        "image3": parsedData.hits[number3].largeImageURL,
+        "image3Like": parsedData.hits[number3].likes,
+        "image4": parsedData.hits[number4].largeImageURL,
+        "image4Like": parsedData.hits[number4].likes
+    });
 });//results route
 
 //Returns all data from the Pixabay API as JSON format
