@@ -45,7 +45,7 @@ app.get("/", async function (req, res) {
 app.get("/results", async function (req, res) {
     //console.dir(req);
     let keyword = req.query.keyword; //gets the value that the user typed in the form using the GET method
-    let orientation = req.query.select;
+    let orientation = req.query.selectOrientation;
     let parsedData = await getImages(keyword, orientation);
     let len = parsedData.hits.length;
     let number1 = Math.floor(Math.random() * len);

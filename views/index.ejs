@@ -3,26 +3,28 @@
 
     Keyword: <input type="text" name="keyword">
     <br><br>
-    Orientation:
-    <select id="orientation" name="select">
-        <option value="horizontal">Horizontal</option>
-        <option value="vertical">Vertical</option>
-    </select>
+    <div class="custom-select" style="width:200px;">
+        Orientation:
+        <select id="orientation" name="selectOrientation">
+            <option value="horizontal">Horizontal</option>
+            <option value="vertical">Vertical</option>
+        </select>
+    </div>
     <button id="searchbtn" class="btn btn-outline-primary>Search</button">
 
 </form>
 <br>
-<div>Likes: <%=image1Like%></div>
-<img src='<%= image1%>' class="rounded" width='250'>
+<div>Likes: <%= image1Like %></div>
+<img src='<%= image1 %>' class="rounded" width='250'>
 <br>
-<div>Likes: <%=image2Like%></div>
-<img src='<%= image2%>' class="rounded" width='250'>
+<div>Likes: <%= image2Like %></div>
+<img src='<%= image2 %>' class="rounded" width='250'>
 <br>
-<div>Likes: <%=image3Like%></div>
+<div>Likes: <%= image3Like %></div>
 <img src='<%= image3 %>' class="rounded" width='250'>
 <br>
-<div>Likes: <%=image4Like%></div>
-<img src='<%= image4%>' class="rounded" width='250'>
+<div>Likes: <%= image4Like %></div>
+<img src='<%= image4 %>' class="rounded" width='250'>
 <br>
 
 </body>
