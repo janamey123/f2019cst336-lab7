@@ -43,3 +43,7 @@
 .select-css option {
     font-weight: normal;
 }
+
+#keyword {
+    margin: 10px;
+}
